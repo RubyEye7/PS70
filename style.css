@@ -1,84 +1,395 @@
-/* Simple local styles for PS70 preview */
+/* Clean Terminal/Hacker Style */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root {
+  --terminal-green: #00ff41;
+  --terminal-green-dim: #00cc33;
+  --terminal-bg: #0a0a0a;
+  --terminal-container: #111111;
+  --terminal-border: #1a1a1a;
+  --text-primary: #00ff41;
+  --text-secondary: #00cc33;
+  --text-muted: #666666;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    background: #111;
-    color: #33ff33;
-    font-family: 'Fira Mono', 'Consolas', 'Menlo', 'Monaco', monospace;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
+  background: var(--terminal-bg);
+  color: var(--text-primary);
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Menlo', 'Monaco', monospace;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  line-height: 1.6;
+  font-size: 14px;
 }
 
-.navbar-brand { font-weight: 600; }
-.placeholder-img { max-height: 160px; object-fit: cover; background: #f0f0f0; }
-
-a {
-    color: #33ff33;
-    text-decoration: none;
-    border-bottom: 1px dashed #33ff33;
-    transition: background 0.2s, color 0.2s;
-}
-a:hover {
-    background: #33ff33;
-    color: #111;
-}
-
+/* Container */
 .container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 32px;
-    background: #181818;
-    border: 2px solid #33ff33;
-    border-radius: 8px;
-    box-shadow: 0 0 24px #000;
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 60px 40px;
+  background: var(--terminal-container);
+  border: 1px solid var(--terminal-border);
+  border-radius: 0;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+  position: relative;
 }
 
-/* small responsive tweaks */
-@media (max-width: 576px) {
-  .placeholder-img { max-height: 120px; }
+/* Header */
+.header {
+  margin-bottom: 40px;
+  text-align: center;
 }
 
+.header h1 {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0;
+  letter-spacing: 0.5px;
+}
+
+/* Navigation */
+nav {
+  margin-bottom: 50px;
+  padding: 0;
+  text-align: center;
+}
+
+nav a {
+  color: var(--text-primary);
+  text-decoration: none;
+  margin: 0 20px;
+  font-size: 0.9em;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: var(--text-secondary);
+}
+
+/* Typography */
 h1, h2, h3 {
-    font-weight: bold;
-    color: #33ff33;
-    margin-bottom: 16px;
-    letter-spacing: 1px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+  font-family: 'JetBrains Mono', monospace;
 }
 
-hr {
-    border: none;
-    border-top: 1px dashed #33ff33;
-    margin: 24px 0;
+h1 {
+  font-size: 1.8em;
 }
 
+h2 {
+  font-size: 1.4em;
+  margin-top: 0;
+  margin-bottom: 30px;
+  color: var(--text-primary);
+  text-align: center;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+h3 {
+  font-size: 1.2em;
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+p {
+  margin-bottom: 16px;
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+
+/* Links */
+a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: var(--text-secondary);
+  border-bottom-color: var(--text-secondary);
+}
+
+/* Course List */
 .course-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .course-list li {
-    padding: 12px 0;
-    border-bottom: 1px dashed #33ff33;
-    display: flex;
-    align-items: center;
+  padding: 12px 0;
+  text-align: center;
+  border-bottom: 1px solid var(--terminal-border);
+  transition: all 0.2s ease;
 }
 
 .course-list li:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
-.prompt {
-    color: #33ff33;
-    font-weight: bold;
-    margin-right: 8px;
-    display: inline;
+.course-list li:hover {
+  padding-left: 10px;
 }
 
+.course-list a {
+  font-size: 1em;
+  color: var(--text-primary);
+  display: block;
+}
+
+.course-list a:hover {
+  color: var(--text-secondary);
+  border-bottom: none;
+}
+
+/* ASCII Art styling */
+.ascii-art {
+  font-family: 'JetBrains Mono', monospace;
+  white-space: pre;
+  color: var(--text-primary);
+  line-height: 1.2;
+  font-size: 0.75em;
+  margin: 20px 0;
+  overflow-x: auto;
+}
+
+.ascii-banner {
+  font-family: 'JetBrains Mono', monospace;
+  white-space: pre;
+  color: var(--text-primary);
+  line-height: 1.2;
+  font-size: 0.65em;
+  margin: 0 0 20px 0;
+  text-align: center;
+  overflow-x: auto;
+  letter-spacing: 0;
+}
+
+.ascii-separator {
+  font-family: 'JetBrains Mono', monospace;
+  white-space: pre;
+  color: var(--text-secondary);
+  font-size: 0.7em;
+  margin: 20px 0;
+  text-align: center;
+  opacity: 0.6;
+  overflow-x: auto;
+}
+
+.ascii-box {
+  font-family: 'JetBrains Mono', monospace;
+  white-space: pre;
+  color: var(--text-primary);
+  font-size: 0.85em;
+  margin: 20px 0;
+  padding: 12px;
+  background: rgba(0, 255, 65, 0.02);
+  border: 1px solid var(--terminal-border);
+  overflow-x: auto;
+  line-height: 1.4;
+}
+
+/* Horizontal rules */
+hr {
+  border: none;
+  border-top: 1px solid var(--terminal-border);
+  margin: 32px 0;
+}
+
+/* Code */
+code {
+  background: rgba(0, 255, 65, 0.1);
+  padding: 2px 6px;
+  border-radius: 2px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+  color: var(--text-primary);
+  border: 1px solid rgba(0, 255, 65, 0.2);
+}
+
+/* Footer */
 footer {
-    text-align: center;
-    padding: 16px 0;
-    background: #181818;
-    color: #33ff33;
-    border-top: 1px dashed #33ff33;
-    margin-top: 32px;
+  text-align: center;
+  padding: 40px 0;
+  margin-top: 60px;
+  color: var(--text-muted);
+  font-size: 0.85em;
+}
+
+footer small {
+  color: var(--text-muted);
+}
+
+/* Bootstrap navbar override - hide it, we use our own nav */
+.navbar {
+  display: none;
+}
+
+/* Text container for about page */
+.textcontainer {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 40px;
+  background: var(--terminal-container);
+  border: 1px solid var(--terminal-border);
+  color: var(--text-primary);
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+}
+
+.textcontainer .header {
+  margin-bottom: 20px;
+}
+
+.textcontainer h1,
+.textcontainer h2,
+.textcontainer h3 {
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--terminal-border);
+  padding-bottom: 8px;
+  margin-top: 32px;
+  margin-bottom: 20px;
+}
+
+.textcontainer h1:first-child {
+  margin-top: 0;
+}
+
+.textcontainer p {
+  color: var(--text-primary);
+  line-height: 1.7;
+}
+
+.textcontainer nav {
+  margin: 20px 0;
+  padding: 16px 0;
+  border-top: 1px solid var(--terminal-border);
+  border-bottom: 1px solid var(--terminal-border);
+  text-align: center;
+}
+
+.center-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin: 24px 0;
+  padding: 20px;
+  background: rgba(0, 255, 65, 0.02);
+  border: 1px solid var(--terminal-border);
+}
+
+.center-row img {
+  max-width: 300px;
+  border: 1px solid var(--terminal-border);
+  flex-shrink: 0;
+}
+
+#aboutme {
+  flex: 1;
+  line-height: 1.7;
+}
+
+.margin {
+  margin: 16px 0;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--terminal-border);
+  display: block;
+  margin: 20px 0;
+}
+
+/* Videos */
+video {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--terminal-border);
+  margin: 20px 0;
+  display: block;
+}
+
+/* Placeholder images */
+.placeholder-img {
+  max-height: 200px;
+  object-fit: cover;
+  border: 1px solid var(--terminal-border);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container,
+  .textcontainer {
+    margin: 20px;
+    padding: 24px;
+  }
+  
+  .course-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .center-row {
+    flex-direction: column;
+  }
+  
+  .center-row img {
+    max-width: 100%;
+  }
+  
+  h1 {
+    font-size: 1.5em;
+  }
+  
+  h2 {
+    font-size: 1.3em;
+  }
+  
+  h3 {
+    font-size: 1.1em;
+  }
+  
+  nav a {
+    display: block;
+    margin-bottom: 8px;
+    margin-right: 0;
+  }
+  
+  nav a {
+    display: inline-block;
+    margin: 0 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .placeholder-img {
+    max-height: 150px;
+  }
+  
+  body {
+    font-size: 13px;
+  }
+}
+
+/* Remove hero section styles */
+.hero-section {
+  display: none;
 }
