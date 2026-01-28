@@ -8,6 +8,7 @@
 </head>
 <body>
   <div class="container">
+    <pre id="matrix-rain" class="ascii-rain" aria-hidden="true"></pre>
     <div class="header">
       <h1>$ PS70: Intro to Digital Fabrication</h1>
     </div>
@@ -37,5 +38,69 @@
   <footer>
     <small>PS70 &copy; 2026 | Digital Fabrication</small>
   </footer>
+  <script>
+    const matrixEl = document.getElementById('matrix-rain');
+    const chars = '01';
+    let columns = [];
+    let rows = 0;
+
+    const buildFrame = () => {
+      if (!matrixEl) return;
+      const width = matrixEl.clientWidth;
+      const height = matrixEl.clientHeight;
+      const colWidth = 9;
+      rows = Math.max(12, Math.floor(height / 14));
+      const colCount = Math.max(18, Math.floor(width / colWidth));
+
+      if (columns.length !== colCount) {
+        columns = Array.from({ length: colCount }, () => ({
+          y: 0,
+          speed: 1,
+          trail: 12,
+          char: chars[Math.floor(Math.random() * chars.length)],
+          active: Math.random() > 0.55
+        }));
+      }
+
+      const grid = Array.from({ length: rows }, () => Array(colCount).fill(' '));
+
+      columns.forEach((col, x) => {
+        if (!col.active) return;
+        const head = Math.floor(col.y) % rows;
+        for (let i = 0; i < col.trail; i += 1) {
+          const y = (head - i + rows) % rows;
+          grid[y][x] = col.char;
+        }
+        col.y = (col.y + col.speed) % rows;
+        if (Math.random() < 0.05) {
+          col.char = chars[Math.floor(Math.random() * chars.length)];
+        }
+        if (Math.random() < 0.01) {
+          col.active = false;
+        }
+      });
+
+      columns.forEach(col => {
+        if (!col.active && Math.random() < 0.015) {
+          col.active = true;
+          col.y = 0;
+        }
+      });
+
+      matrixEl.textContent = grid.map(row => row.join('')).join('\n');
+    };
+
+    const loop = () => {
+      buildFrame();
+      setTimeout(loop, 120);
+    };
+
+    window.addEventListener('resize', () => {
+      columns = [];
+      buildFrame();
+    });
+
+    loop();
+  </script>
 </body>
 </html>

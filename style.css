@@ -171,6 +171,24 @@ a:hover {
   overflow-x: auto;
 }
 
+/* Matrix rain ASCII animation */
+.ascii-rain {
+  font-family: 'JetBrains Mono', monospace;
+  white-space: pre;
+  color: var(--text-primary);
+  line-height: 1.1;
+  font-size: 0.85em;
+  margin: 0 auto 24px auto;
+  padding: 16px;
+  background: rgba(0, 255, 65, 0.03);
+  border: 1px solid var(--terminal-border);
+  height: 240px;
+  overflow: hidden;
+  letter-spacing: 0.2px;
+  max-width: 680px;
+  text-align: center;
+}
+
 .ascii-banner {
   font-family: 'JetBrains Mono', monospace;
   white-space: pre;
