@@ -40,6 +40,7 @@ body {
   border-radius: 0;
   box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
   position: relative;
+  z-index: 1;
 }
 
 /* Header */
@@ -175,18 +176,23 @@ a:hover {
 .ascii-rain {
   font-family: 'JetBrains Mono', monospace;
   white-space: pre;
-  color: var(--text-primary);
+  color: var(--terminal-green-dim);
   line-height: 1.1;
-  font-size: 0.85em;
-  margin: 0 auto 24px auto;
+  font-size: 1em;
+  margin: 0;
   padding: 16px;
-  background: rgba(0, 255, 65, 0.03);
-  border: 1px solid var(--terminal-border);
-  height: 240px;
+  background: transparent;
+  border: none;
+  height: 100vh;
   overflow: hidden;
-  letter-spacing: 0.2px;
-  max-width: 680px;
+  letter-spacing: 0.6px;
+  width: 100%;
   text-align: center;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.35;
 }
 
 .ascii-banner {
