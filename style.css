@@ -327,6 +327,16 @@ footer small {
   flex-shrink: 0;
 }
 
+.center-row--stack {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.center-row--stack img {
+  max-width: none;
+  width: 100%;
+}
+
 #aboutme {
   flex: 1;
   line-height: 1.7;
