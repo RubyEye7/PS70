@@ -346,6 +346,14 @@ footer small {
   margin: 16px 0;
 }
 
+/* Documentation pre blocks: flow as one block of text, no tabbed/indented lines */
+.textcontainer pre.margin {
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
 /* Images */
 img {
   max-width: 100%;
