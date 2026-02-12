@@ -28,6 +28,7 @@ body {
   min-height: 100vh;
   line-height: 1.6;
   font-size: 14px;
+  overflow-x: hidden;
 }
 
 /* Container */
@@ -269,6 +270,7 @@ footer small {
 
 /* Text container for about page */
 .textcontainer {
+  width: 100%;
   max-width: 900px;
   margin: 60px auto;
   padding: 40px;
@@ -278,6 +280,7 @@ footer small {
   box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
   position: relative;
   z-index: 1;
+  overflow-x: hidden;
 }
 
 .textcontainer .header {
@@ -351,7 +354,10 @@ footer small {
   white-space: normal;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  word-break: break-word;
   max-width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
 }
 
 /* Images */
