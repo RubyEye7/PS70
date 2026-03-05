@@ -289,7 +289,8 @@ footer small {
 
 .textcontainer h1,
 .textcontainer h2,
-.textcontainer h3 {
+.textcontainer h3,
+.textcontainer h4 {
   color: var(--text-primary);
   border-bottom: 1px solid var(--terminal-border);
   padding-bottom: 8px;
@@ -442,4 +443,45 @@ video {
 /* Remove hero section styles */
 .hero-section {
   display: none;
+}
+
+/* Expandable box (details/summary) */
+.expandable-box {
+  margin: 24px 0;
+  border: 1px solid var(--terminal-border);
+  background: rgba(0, 255, 65, 0.02);
+}
+
+.expandable-box__header {
+  padding: 16px 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  list-style: none;
+  font-size: 1.1em;
+  transition: background 0.2s ease;
+}
+
+.expandable-box__header::-webkit-details-marker {
+  display: none;
+}
+
+.expandable-box__header::before {
+  content: '▶ ';
+  display: inline-block;
+  margin-right: 8px;
+  transition: transform 0.2s ease;
+}
+
+.expandable-box[open] .expandable-box__header::before {
+  transform: rotate(90deg);
+}
+
+.expandable-box__header:hover {
+  background: rgba(0, 255, 65, 0.05);
+}
+
+.expandable-box__content {
+  padding: 0 20px 20px 20px;
+  border-top: 1px solid var(--terminal-border);
 }
