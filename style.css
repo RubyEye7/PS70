@@ -307,6 +307,16 @@ footer small {
   line-height: 1.7;
 }
 
+.textcontainer table.table {
+  --bs-table-color: #ffffff;
+  --bs-table-striped-color: #ffffff;
+  color: #ffffff;
+}
+
+.textcontainer table.table > :not(caption) > * > * {
+  color: #ffffff;
+}
+
 .textcontainer nav {
   margin: 20px 0;
   padding: 16px 0;

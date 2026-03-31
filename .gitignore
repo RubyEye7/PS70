@@ -9,3 +9,23 @@ node_modules/
 __pycache__/
 *.py[cod]
 .cache
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+.hypothesis/
+*.egg-info/
+dist/
+build/
+
+# Other env files (optional template is committed on purpose)
+.env.*
+!.env.example
+
+# Slicer / printer binaries (large; keep out of git)
+*.bgcode
+
+# OS / editor noise
+Thumbs.db
+*.swp
+*.swo
+*~
