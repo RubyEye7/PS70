@@ -29,18 +29,51 @@
 
 <h3>Week 9: Radio, WiFi, Bluetooth (IoT)</h3>
 
-
-<p class="margin">   </p>
-<div class="flexrow">
-  <a id="btn" href="wk9.zip" download>Download my files from this week!
-  </a>
-</div>
+<h4>Assignment: Connect Something to a Network</h4>
 <p class="margin">   </p>
 
-<h4>Assignment: [Program something with IOT]</h4>
+<p><strong>Documentation:</strong></p>
+<pre class="margin">
 
+This week was networking, and since my final project involved a camera, I integrated it in. My ESPS3 Camera with an OV3660 would send the livestream over the internet to the computer, then as a button is pressed
+on a C3, then a still would be taken from the camera stream. Then, the image would be processed through my Gemini API and Spotify API to return a song that matches the image. There were a few issues I stumbled into this week
+that were heavily related to the networking end. First of all, I had to program two different arduino boards, and I set them all up on the same Wifi so that each of them could send and receive signals to one another. I struggled
+particularly with getting the computer to integrate connections to both, receiving button inputs from C3 and camera from S3. When I get the thermal printer, I anticipate that I will have similar trouble then sending the processed
+QR code back from my computer to the board which I have connected to the printer. Overall, it was really valuable to struggle through the networking, discovering the different ways that these devices communicate. Eventually, I got the 
+pipeline down from button to camera to computer to Gemini to Spotify to QR code. The photos below show a bit of the camera setup and process, including some of the behind the scenes information from the serial monitor reading from the C3. 
 
+</pre>
+<p class="margin">   </p>
 
+<p><em>CAMERA SETUP</em></p>
+<img src="./Camera Setup.png" alt="Camera Setup" style="max-width: 100%; height: auto;">
+<p class="margin">   </p>
+
+<p><em>CAMERA VIEW</em></p>
+<img src="./Camera View.png" alt="Camera View" style="max-width: 100%; height: auto;">
+<p class="margin">   </p>
+
+<p><em>NETWORK PROCESS</em></p>
+<video src="./Network Process.MOV" controls style="max-width: 100%;"></video>
+<p class="margin">   </p>
+
+<p><strong>Documentation:</strong></p>
+<pre class="margin">
+
+The network process video above shows what happens end-to-end when a capture is requested. The camera is already live streaming on the local network, and the Python server is running and waiting for a
+trigger, which is the button that I wired up. When the button is pressed on the C3, it sends a GET request to the /trigger endpoint on the computer, and the server grabs a frame from the camera stream, passes it through the Gemini API and then the
+Spotify API, and then it finally generates a QR code that pops up in the browser. All of this happens only if everything is on the same WiFi network. The videos and setup above are pretty comprehensive, but I kept running into all sorts of 
+issues this week with my buttons, since I have two different types. I wanted to do a Pullup, but I had a button that I had wired to always be High, which would only work with a Pulldown format. Now, I have figured it out, and below is a video of the 
+verbose state tracking that I had Arduino and my website do. There are very clear visual indicators when there is a photo that is captured, and also I have a reset button, which was inspired by some comments I got during the 
+design review. It will make it easier for me to have a photo taken, then block another photo from being taken until the previous one is reset out of the camera. This way, I can guarantee that the right song is printed, since 
+I was getting a lot of server overlap with rapid button presses that was messing up the flow of the project. 
+
+</pre>
+<p class="margin">   </p>
+
+<p><em>DUAL BUTTON</em></p>
+<video src="./Dual Button.MOV" controls style="max-width: 100%;"></video>
+<p class="margin">   </p>
 
 </div>
 </xmp>
