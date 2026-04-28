@@ -92,6 +92,42 @@
   </div>
 </details>
 
+<details class="expandable-box" id="week7-update">
+  <summary class="expandable-box__header">Week 7 Update</summary>
+  <div class="expandable-box__content">
+    <p class="margin">   </p>
+
+    <p>Week 7 (outputs, camera housing, and the photo-to-song flow) ties into the final song camera app. The web UI for matching a photo to a Spotify QR code is in <code>13_finalproject/qr_code_gen/</code>: run the server (see the comment at the top of <code>server.py</code> for the <code>uvicorn</code> command), then open <a href="http://127.0.0.1:8000/" rel="noopener noreferrer">http://127.0.0.1:8000/</a> locally.</p>
+    <p class="margin">   </p>
+
+    <p><a href="../07_outputs/index.html">← Week 7 documentation</a></p>
+    <p class="margin">   </p>
+  </div>
+</details>
+
+<details class="expandable-box" id="week11-update">
+  <summary class="expandable-box__header">Week 11 Update: Project Integration</summary>
+  <div class="expandable-box__content">
+    <p class="margin">   </p>
+
+    <p><strong>Documentation:</strong></p>
+    <pre class="margin">
+
+For this week, I was able to get my project rolling in a number of different ways. First of all, I pivoted on the design of the camera, as the form factor of each individual piece of hardware is larger than I was planning,
+from a modern digital camera design to a classic vintage Polaroid, so it is bigger and still handheld, but not able to be tucked into a bag. I also tested some of the fit tolerances for the consistently sized pieces of input and output
+that I will need to integrate into the final design, and have 3D printed some housing elements in order to test whether or not things will fit as they are or if I have to make some changes. I also put together a very rough
+body for the camera out of hot glue and wood, which, while very temporary and not the final design, gives a good idea as to what someone would be holding when using the product. It is large,
+and right now it is really rough, but it gives me a basis for measurements and will allow me to 3D design the next steps of the project while seeing what can fit inside and where. I think that one of the things I am going to have to be very careful
+about down the stretch is making sure that the final design looks good, but also that things integrate into it well. What I mean by that is that I want the pieces to be able to screw on to one another. I want the battery
+to fit inside it well. I want the wires to all be soldered, and I want to make sure that you no longer have to plug it into a computer. I have been having some trouble with communicating between my computer and my
+camera, so that is the next thing to diagnose. At least now I know what I want it to feel like in my hand, so there is a lot of progress mentally on what the next steps will be.
+
+    </pre>
+    <p class="margin">   </p>
+
+  </div>
+</details>
+
 </div>
 </body>
 
@@ -100,6 +136,12 @@
 <script>
   if (window.location.hash === '#week5-update') {
     document.getElementById('week5-update').setAttribute('open', '');
+  }
+  if (window.location.hash === '#week7-update') {
+    document.getElementById('week7-update').setAttribute('open', '');
+  }
+  if (window.location.hash === '#week11-update') {
+    document.getElementById('week11-update').setAttribute('open', '');
   }
 </script>
 
